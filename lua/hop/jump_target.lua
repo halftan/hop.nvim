@@ -424,7 +424,7 @@ end
 ---@return Regex
 function M.regex_by_vertical()
   local buf = vim.api.nvim_win_get_buf(0)
-  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   local regex = vim.regex(string.format('^.\\{0,%d\\}\\(.\\|$\\)', col))
   return {
     oneshot = true,
